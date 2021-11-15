@@ -167,7 +167,8 @@ class FujitsuClimate(ClimateEntity):
     def hvac_mode(self):
         """Return current operation ie. heat, cool, idle."""
         _LOGGER.debug("FujitsuClimate hvac_mode: %s", self._fujitsu_device.operation_mode['value'])
-        return self._fujitsu_device.operation_mode_desc
+        self._hvac_mode = self._fujitsu_device.operation_mode_desc
+        return self._hvac_mode
        
     @property
     def hvac_modes(self):
